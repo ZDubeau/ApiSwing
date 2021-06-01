@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "-Dspring.output.ansi.enabled",
+    "type": "java.lang.String",
+    "description": "A description for '-Dspring.output.ansi.enabled'"
+  },
+  {
+    "name": "server.context-path",
+    "type": "java.lang.String",
+    "description": "A description for 'server.context-path'"
+  },
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.secret'"
+  },
+  {
+    "name": "security.jwt.token.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'security.jwt.token.secret-key'"
+  },
+  {
+    "name": "security.jwt.token.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'security.jwt.token.secret-key'"
+  },
+  {
+    "name": "-Dspring.output.ansi.enabled",
+    "type": "java.lang.String",
+    "description": "A description for '-Dspring.output.ansi.enabled'"
+  },
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.secret'"
+  },
+  {
+    "name": "-Dspring.output.ansi.enabled",
+    "type": "java.lang.String",
+    "description": "A description for '-Dspring.output.ansi.enabled'"
+  },
+  {
+    "name": "server.context-path",
+    "type": "java.lang.String",
+    "description": "A description for 'server.context-path'"
+  }
+]}
