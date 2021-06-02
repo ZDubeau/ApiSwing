@@ -6,12 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,9 +47,10 @@ public class Objects implements Serializable {
 	private int id;
 
 	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
 	private ObjStatus status;
 
-	@Column(name = "title", nullable = false)
+	@Column(name = "title", nullable = false, unique = true)
 	private String title;
 
 	@Column(name = "description")
@@ -55,7 +62,9 @@ public class Objects implements Serializable {
 	@Column(name = "age_max", nullable = false)
 	private int ageMax;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
 	private User user;
 }

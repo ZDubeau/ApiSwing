@@ -1,8 +1,11 @@
 package com.api.swing.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.api.swing.model.ObjStatus;
 import com.api.swing.model.Objects;
 
 /**
@@ -21,4 +24,10 @@ import com.api.swing.model.Objects;
 
 @Repository
 public interface ObjectRepository extends CrudRepository<Objects, Integer> {
+
+	Objects findObjeById(Objects objects);
+
+	Optional<Object> findByTitle(String title);
+	
+	Optional<Object> findByStatus(ObjStatus objStatus);
 }

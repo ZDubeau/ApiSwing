@@ -112,8 +112,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	// handleResourceNotFoundException : triggers when there is not resource with
 	// the specified ID in BDD
-	@ExceptionHandler(UserNotFoundException.class)
-	public ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex) {
+	@ExceptionHandler(RessourceNotFoundException.class)
+	public ResponseEntity<Object> handleUserNotFoundException(RessourceNotFoundException ex) {
 
 		List<String> details = new ArrayList<String>();
 		details.add(ex.getMessage());

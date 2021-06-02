@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.swing.business.UserService;
-import com.api.swing.exceptions.UserNotFoundException;
+import com.api.swing.exceptions.RessourceNotFoundException;
 import com.api.swing.jwt.JwtUtil;
 import com.api.swing.model.JwtRequest;
 import com.api.swing.model.JwtResponse;
@@ -135,13 +135,13 @@ public class ApiUserController {
 	public User getById(@PathVariable("id") @Min(1) int id) {
 
 		return userService.findUserById(id)
-				.orElseThrow(() -> new UserNotFoundException("User with ID [" + id + "] Not Found!"));
+				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
 	}
 
 	@DeleteMapping("/user/{id}")
 	public String deleteUser(@PathVariable("id") @Min(1) int id) {
 		User user = userService.findUserById(id)
-				.orElseThrow(() -> new UserNotFoundException("User with ID [" + id + "] Not Found!"));
+				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
 		userService.deleteById(user.getId());
 		return "User with ID : " + id + " is deleted";
 	}

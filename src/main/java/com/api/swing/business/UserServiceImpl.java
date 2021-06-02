@@ -18,7 +18,6 @@ import com.api.swing.repository.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 @Slf4j
 @Component
 public class UserServiceImpl implements UserService {
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUser() {
 		return (List<User>) userRepository.findAll();
 	}
-	
+
 	@Override
 	public Optional<User> findUserById(int id) {
 		return userRepository.findById(id);
@@ -85,4 +84,20 @@ public class UserServiceImpl implements UserService {
 	public void deleteById(int id) {
 		userRepository.deleteById(id);
 	}
+
+	// @Transactional
+	// public User addObjectToUser(int userId, int objId) {
+	// Optional<User> user = findUserById(userId);
+	// Optional<Objects> object = objectService.getObjectById(objId);
+	// user.addObject(object);
+	// return user;
+	// }
+	//
+	// @Transactional
+	// public User removeObjectToUser(int userId, int objId) {
+	// Optional<User> user = findUserById(userId);
+	// Optional<Objects> object = objectService.getObjectById(objId);
+	// user.removeObject(object);
+	// return user;
+	// }
 }
