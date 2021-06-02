@@ -56,9 +56,9 @@ public class ApiObjectController {
 //		if (objectService.findByStatus(obj.getStatus()).isEmpty()) {
 //			throw new NullPointerException("'Status' can't be NULL !");
 //		}
-		if (objectService.findByTitle(obj.getTitle()).isEmpty()) {
-			throw new NullPointerException("'Title' can't be NULL !");
-		}
+//		if (objectService.findByTitle(obj.getTitle()).isEmpty()) {
+//			throw new NullPointerException("'Title' can't be NULL !");
+//		}
 		
 		return objectService.createObject(id, obj);
 	}
