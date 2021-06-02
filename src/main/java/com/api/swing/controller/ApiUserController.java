@@ -127,7 +127,9 @@ public class ApiUserController {
 
 	@GetMapping(value = "/users")
 	public List<User> getUser() {
-
+		if (userService.getUser().isEmpty()) {
+			throw new RessourceNotFoundException("User list is empty.");
+		}
 		return userService.getUser();
 	}
 
