@@ -54,7 +54,6 @@ Ce projet a été réalisé dans le cadre de ma formation chez Simplon afin de c
 
 ```
 https://api-swing.herokuapp.com/api/users
-
 ```
 
 
@@ -113,7 +112,7 @@ https://api-swing.herokuapp.com/api/users
 
 ```
 
-***Ex. NOT_FOUND response***
+**Ex. NOT_FOUND response**
 
 ```sh
 
@@ -139,28 +138,22 @@ https://api-swing.herokuapp.com/api/users
 
 `GET getBjects()`
 
-```sh
-
-https://api-swing.herokuapp.com/objects/all
-
 ```
-
+https://api-swing.herokuapp.com/objects/all
+```
 
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 [
 
   {
@@ -180,13 +173,11 @@ https://api-swing.herokuapp.com/objects/all
   }
 
 ]
-
 ```
 
-***Ex. NOT_FOUND response***
+**Ex. NOT_FOUND response**
 
 ```sh
-
 {
 
   "timestamp": "02-06-2021 08:08:23",
@@ -202,33 +193,28 @@ https://api-swing.herokuapp.com/objects/all
   ]
 
 }
-
 ```
 
 ************************************************
 
+
 `GET getUserById()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/user/{1}
-
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 {
 
     "id": 1,
@@ -246,7 +232,6 @@ https://api-swing.herokuapp.com/api/user/{1}
     "objects": []
 
 }
-
 ```
 
 **Si "id" de USER n'est pas dans la BDD, nous verrons la réponse suivante :**
@@ -255,30 +240,25 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 ``` "User with ID [?] Not Found!" ```
 
+
 ************************************************
+
 
 `PUT updateUserById()`
 
-```sh
-
-https://api-swing.herokuapp.com/api/update/{1}
-
+```https://api-swing.herokuapp.com/api/update/{1}
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
-
 
 
 ##### **Body**  raw(json)
 
 ```sh
-
 {
 
     "username": "Sarah132",
@@ -294,13 +274,11 @@ https://api-swing.herokuapp.com/api/update/{1}
     "objects": []
 
 }
-
 ```
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 {
 
     "id": 1,
@@ -318,23 +296,21 @@ https://api-swing.herokuapp.com/api/update/{1}
     "objects": []
 
 } 
-
 ```
+
 
 ************************************************
 
+
 `DELETE deleteUserById()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/user/{1}
-
 ```
 
-***EX. Success Response***
+**EX. Success Response**
 
-```sh
-
+```
 User with ID : 1 is deleted
 
 ```
@@ -345,15 +321,18 @@ User with ID : 1 is deleted
 
 ``` "User with ID [?] Not Found!" ```
 
+
+
 ************************************************
+
 
 `POST saveUser()`
 
-```sh
+```
 
 https://api-swing.herokuapp.com/api/registration
-
 ```
+
 
 ## Annotation Pattern
 
@@ -377,9 +356,7 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
@@ -408,7 +385,7 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 
 
 
-EX. `Success Response`
+**EX. `Success Response`**
 
 ```sh
 
@@ -434,6 +411,7 @@ EX. `Success Response`
 
 -----------------------------------------
 
+
 ### Request Headers
 
 ##### **Body**        raw(json)
@@ -456,7 +434,7 @@ EX. `Success Response`
 
 ```
 
-EX. `DuplicateKeyException - Double`
+**EX. `DuplicateKeyException - Double`**
 
 
 
@@ -474,7 +452,7 @@ EX. `DuplicateKeyException - Double`
 
   "errors": [
 
-    "Username: [Sarah12] and Email: [bhr.sdgi@gmail.com] already exists !"
+   "Username: [Sarah12] and Email: [bhr.sdgi@gmail.com] already exists !"
 
   ]
 
@@ -484,38 +462,36 @@ EX. `DuplicateKeyException - Double`
 
 *Si seulement Username est en double, la reponse sera* 
 
-`[
+```[
 
  "Username: [***] already exists !"
 
-]`
+]```
 
 
 
 *Si seulement MAIL est en double, la reponse sera*
 
-`[
+```[
 
  "Email: [***] already exists !"
 
-]`
+]```
+
 
 -----------------------------------------
 
+
+
 `POST saveUser()`
 
-```sh
-
-https://api-swing.herokuapp.com/api/registration
-
+```https://api-swing.herokuapp.com/api/registration
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
@@ -548,7 +524,7 @@ https://api-swing.herokuapp.com/api/registration
 
 ```
 
-EX. `Success Response`
+**EX. `Success Response`**
 
 ```sh
 
@@ -638,7 +614,7 @@ Il est obligatoire de mettre a jour le projet apres ajout d'un dependant.
 
 >1. menu eclipse > Run Configuration > Maven Build > Click on Skip Tests > apply and Close
 
-2. Right click > Maven > Update Project ...
+>2. Right click > Maven > Update Project ...
 
 
 
@@ -656,8 +632,8 @@ Récupéré les parameters de connexion de JawsDB et créé une nouvelle connexi
 
 Configurer `applications.properties`
 
-```sh
 
+```
 spring.datasource.url= ${JDBC_DATABASE_URL}
 
 spring.datasource.username=${JDBC_DATABASE_USERNAME}
@@ -689,11 +665,8 @@ A partir de ce moment, à chaque fois que nous mergeons la branche de travail av
 
 
 | Plugin | README |
-
 | ------ | ------ |
-
 | GitHub | [https://github.com/ZDubeau/ApiSwing#readme][PlGh] |
-
 | Google Drive | [plugins/googledrive/README.md][PlGd] |
 
 
@@ -705,6 +678,5 @@ A partir de ce moment, à chaque fois que nous mergeons la branche de travail av
 
 
    [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-
    [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
 
