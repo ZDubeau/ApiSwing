@@ -13,9 +13,6 @@ import com.api.swing.model.User;
 import com.api.swing.repository.ObjectRepository;
 import com.api.swing.repository.UserRepository;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Component
 public class ObjectServiceImpl implements ObjectsService {
 
@@ -42,12 +39,12 @@ public class ObjectServiceImpl implements ObjectsService {
 	public Optional<Object> findByStatus(ObjStatus objStatus) {
 		return objectRepository.findByStatus(objStatus);
 	}
-	
+
 	@Override
 	public Optional<Object> findByTitle(String title) {
 		return objectRepository.findByTitle(title);
 	}
-	
+
 	@Override
 	public Objects createObject(int id, Objects obj) {
 		return userRepository.findById(id).map(u -> {
@@ -73,13 +70,13 @@ public class ObjectServiceImpl implements ObjectsService {
 		return objectRepository.save(obj);
 	}
 
-//	@Override
-//	public Objects deleteObject(int id, Objects obj) {
-//
-//		Optional<Objects> optionalObj = objectRepository.findById(id);
-//		if (!optionalObj.isPresent()) {
-//			return objectRepository.save(obj);
-//		}
-//		return objectRepository.removeById(optionalObj.get());
-//	}
+	//	@Override
+	//	public Objects deleteObject(int id, Objects obj) {
+	//
+	//		Optional<Objects> optionalObj = objectRepository.findById(id);
+	//		if (!optionalObj.isPresent()) {
+	//			return objectRepository.save(obj);
+	//		}
+	//		return objectRepository.removeById(optionalObj.get());
+	//	}
 }
