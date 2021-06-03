@@ -52,8 +52,7 @@ Ce projet a été réalisé dans le cadre de ma formation chez Simplon afin de c
 
 `GET getUsers()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/users
 
 ```
@@ -63,14 +62,12 @@ https://api-swing.herokuapp.com/api/users
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
+**EX. Success Response**
 
-***EX. Success Response***
 
 ```sh
 
