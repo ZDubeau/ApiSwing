@@ -193,7 +193,8 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 `PUT updateUserById()`
 
-```https://api-swing.herokuapp.com/api/update/{1}
+```
+https://api-swing.herokuapp.com/api/update/{1}
 ```
 
 ### Request Headers
@@ -236,19 +237,22 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 `DELETE deleteUserById()`
 
-```https://api-swing.herokuapp.com/api/user/{1}
+```
+https://api-swing.herokuapp.com/api/user/{1}
 ```
 
 **EX. Success Response**
 
-```User with ID : 1 is deleted
+```
+User with ID : 1 is deleted
 ```
 
 **Aussi toujours la réponse d' "id" qui n'existe pas dans la BDD est :**
 
 *EX. NOT_FOUND Response*
 
-``` "User with ID [?] Not Found!" 
+``` 
+"User with ID [?] Not Found!" 
 ```
 
 
@@ -258,7 +262,8 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 `POST saveUser()`
 
-```https://api-swing.herokuapp.com/api/registration
+```
+https://api-swing.herokuapp.com/api/registration
 ```
 
 
@@ -366,7 +371,8 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 *Si seulement MAIL est en double, la reponse sera*
 
 
-```[
+```
+[
  "Email: [***] already exists !"
 ]
 ```
@@ -377,7 +383,8 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 
 `POST saveUser()`
 
-```https://api-swing.herokuapp.com/api/registration
+```
+https://api-swing.herokuapp.com/api/registration
 ```
 
 ### Request Headers
