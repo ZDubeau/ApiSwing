@@ -33,9 +33,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> findUserById(int id) {
+	public Optional<User> findById(int id) {
+		
 		return userRepository.findById(id);
+		
 	}
+	
+//	@Override
+//	public Optional<User> findUserWithObjectsById(int id) {
+//		return userRepository.findUserWithObjectsById(id);
+//		
+//	}
 
 	@Override
 	public Optional<User> findByMail(String mail) {
@@ -67,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
 	public User update(int id, User updateUser) {
 
-		User update = findUserById(id)
+		User update = findById(id)
 				.orElseThrow(() -> new EntityNotFoundException(User.class + "id : " + updateUser));
 
 		update.setPassword(passwordEncoder.encode(updateUser.getPassword()));

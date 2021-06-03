@@ -93,5 +93,10 @@
     "name": "-Dspring.datasource.tomcat.initial-size",
     "type": "java.lang.String",
     "description": "A description for '-Dspring.datasource.tomcat.initial-size'"
+  },
+  {
+    "name": "hibernate.cache.auto_evict_collection_cache",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.cache.auto_evict_collection_cache'"
   }
 ]}

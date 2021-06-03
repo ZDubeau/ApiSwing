@@ -27,28 +27,27 @@ public class ObjectServiceImpl implements ObjectsService {
 		return (List<Objects>) objectRepository.findAll();
 	}
 
-	public Objects getObjById(int id) throws Exception {
-		Optional<Objects> optionalObject = objectRepository.findById(id);
-		if (!optionalObject.isPresent()) {
-			return optionalObject.orElseThrow(() -> new Exception());
+	public Optional<Objects> getById(int id) throws Exception {
+		if (!objectRepository.findById(id).isPresent()) {
+			throw new Exception();
 		}
-		return objectRepository.findObjeById(optionalObject.get());
+		return objectRepository.findById(id);
 	}
 
 	@Override
-	public Optional<Object> findByStatus(ObjStatus objStatus) {
+	public Optional<Objects> findByStatus(ObjStatus objStatus) {
 		return objectRepository.findByStatus(objStatus);
 	}
 
 	@Override
-	public Optional<Object> findByTitle(String title) {
+	public Optional<Objects> findByTitle(String title) {
 		return objectRepository.findByTitle(title);
 	}
 
 	@Override
 	public Objects createObject(int id, Objects obj) {
 		return userRepository.findById(id).map(u -> {
-			obj.setUser(u);
+			obj.setUser_id(id);
 			return objectRepository.save(obj);
 		}).orElseThrow(() -> new RessourceNotFoundException("User with id: [" + id + "] not found"));
 	}
@@ -56,7 +55,7 @@ public class ObjectServiceImpl implements ObjectsService {
 	@Override
 	public Objects updateObject(int id, Objects obj) {
 
-		Optional<User> optionalUser = userRepository.findById(obj.getId());
+		Optional<User> optionalUser = userRepository.findById(obj.getUser_id());
 		if (!optionalUser.isPresent()) {
 			return objectRepository.save(obj);
 		}
@@ -65,7 +64,7 @@ public class ObjectServiceImpl implements ObjectsService {
 		if (!optionalObj.isPresent()) {
 			return objectRepository.save(obj);
 		}
-		obj.setUser(optionalUser.get());
+		obj.setUser_id(optionalUser.get().getId());
 		obj.setId(optionalObj.get().getId());
 		return objectRepository.save(obj);
 	}

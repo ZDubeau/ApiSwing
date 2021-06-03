@@ -16,9 +16,9 @@ public interface ObjectsService {
 	
 	//Objects deleteObject(int id, Objects obj);
 	
-	Objects getObjById(int id) throws Exception;
+	Optional<Objects> getById(int id) throws Exception;
 	
-	Optional<Object> findByStatus(ObjStatus objStatus);
+	Optional<Objects> findByStatus(ObjStatus objStatus);
 
-	Optional<Object> findByTitle(String title);
+	Optional<Objects> findByTitle(String title);
 }

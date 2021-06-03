@@ -1,11 +1,13 @@
 package com.api.swing.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,9 +16,18 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
@@ -31,7 +42,9 @@ import lombok.NoArgsConstructor;
  *                     for each field
  */
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -59,7 +72,9 @@ public class User implements Serializable {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("user")
+	//@Fetch(value=FetchMode.SELECT)
 	private Set<Objects> objects;
 
 	//	public void setAllObj(Set<Objects> allObj) {

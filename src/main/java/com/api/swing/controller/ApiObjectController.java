@@ -1,8 +1,11 @@
 package com.api.swing.controller;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +23,9 @@ import com.api.swing.model.Objects;
 import com.api.swing.repository.ObjectRepository;
 import com.api.swing.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @CrossOrigin
 @RequestMapping("/")
@@ -39,6 +45,12 @@ public class ApiObjectController {
 			throw new RessourceNotFoundException("Object list is empty.");
 		}
 		return objectService.getObjects();
+	}
+
+	@GetMapping("/objects/{id}")
+	public Optional<Objects> getById(@PathVariable("id") @Min(1) int id) throws Exception {
+		log.info("Object :" + id);
+		return objectService.getById(id);
 	}
 
 	@PostMapping("/user/{user_id}/addObj")
