@@ -52,10 +52,8 @@ Ce projet a été réalisé dans le cadre de ma formation chez Simplon afin de c
 
 `GET getUsers()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/users
-
 ```
 
 
@@ -63,300 +61,211 @@ https://api-swing.herokuapp.com/api/users
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
+**EX. Success Response**
 
-***EX. Success Response***
 
 ```sh
-
 [
-
     {
-
         "id": 1,
-
         "username": "Sarah5",
-
         "firstname": "Zahra",
-
         "lastname": "Sadeghi",
-
         "mail": "bhr.sdgioiki@gmail.com",
-
         "password": "$2a$10$7Z2Hj23t8YiQUz71m0kiaeZSo9.PaC/awtbjapy7YXvbUccgNWQBq",
-
         "objects": []
-
     },
-
     {
-
         "id": 2,
-
         "username": "Sarah",
-
         "firstname": "Zahra",
-
         "lastname": "Sadeghi",
-
         "mail": "bhr.sdg@gmail.com",
-
         "password": "$2a$10$aAYXdTo1ImDyrSTsl8zDCerrLq9q9J8fncJeu/VWjA177BbH2QCt.",
-
         "objects": []
-
     }
-
 ]
-
 ```
 
-***Ex. NOT_FOUND response***
+**Ex. NOT_FOUND response**
 
 ```sh
-
 {
-
   "timestamp": "02-06-2021 03:31:40",
-
   "status": "NOT_FOUND",
-
   "message": "Resource Not Found",
-
   "errors": [
-
     "User list is empty."
-
   ]
-
 }
-
 ```
 
 ************************************************
 
-`GET getBjects()`
-
-```sh
-
-https://api-swing.herokuapp.com/objects/all
+`GET getObjects()`
 
 ```
-
+https://api-swing.herokuapp.com/objects/all
+```
 
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 [
-
   {
-
     "id": 1,
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": null,
-
     "ageMin": 2,
-
     "ageMax": 5
-
   }
-
 ]
-
 ```
 
-***Ex. NOT_FOUND response***
+**Ex. NOT_FOUND response**
 
 ```sh
-
 {
-
   "timestamp": "02-06-2021 08:08:23",
-
   "status": "NOT_FOUND",
-
   "message": "Resource Not Found",
-
   "errors": [
-
     "Object list is empty."
-
   ]
-
 }
-
 ```
 
 ************************************************
+
 
 `GET getUserById()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/user/{1}
-
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 {
-
     "id": 1,
-
     "username": "Sarah132",
-
     "firstname": "Baharyy",
-
     "lastname": "Merian",
-
     "mail": "bhr.dubqyyy@gmail.com",
-
     "password": "$2a$10$ttjiHMLb0VaymIOPbvOEv.uyZtc5jw1dN4rBD8wgiid7UXuOiFZ.G",
-
     "objects": []
-
 }
-
 ```
 
 **Si "id" de USER n'est pas dans la BDD, nous verrons la réponse suivante :**
 
 *EX. NOT_FOUND Response*
 
-``` "User with ID [?] Not Found!" ```
+``` "User with ID [?] Not Found!"
+```
+
 
 ************************************************
 
+
 `PUT updateUserById()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/update/{1}
-
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
-
 
 
 ##### **Body**  raw(json)
 
 ```sh
-
 {
-
     "username": "Sarah132",
-
     "firstname": "Baharyy",
-
     "lastname": "Merian",
-
     "mail": "bhr.dubqyyy@gmail.com",
-
     "password": "$2a$10$ttjiHMLb0VaymIOPbvOEv.uyZtc5jw1dN4rBD8wgiid7UXuOiFZ.G",
-
     "objects": []
-
 }
-
 ```
 
-***EX. Success Response***
+**EX. Success Response**
 
 ```sh
-
 {
-
     "id": 1,
-
     "username": "Sarah202",
-
     "firstname": "Bahar",
-
     "lastname": "Dubeau",
-
     "mail": "bhr.waren@gmail.com",
-
     "password": "$2a$10$lhEWkZqCvVyRjVHeUDqf7e3rllMZD0txdPTrOnmhnxRizvF6FSE56",
-
     "objects": []
-
 } 
-
 ```
+
 
 ************************************************
 
+
 `DELETE deleteUserById()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/user/{1}
-
 ```
 
-***EX. Success Response***
+**EX. Success Response**
 
-```sh
-
+```
 User with ID : 1 is deleted
-
 ```
 
 **Aussi toujours la réponse d' "id" qui n'existe pas dans la BDD est :**
 
 *EX. NOT_FOUND Response*
 
-``` "User with ID [?] Not Found!" ```
+``` 
+"User with ID [?] Not Found!" 
+```
+
+
 
 ************************************************
 
+
 `POST saveUser()`
 
-```sh
-
-https://api-swing.herokuapp.com/api/registration
-
 ```
+https://api-swing.herokuapp.com/api/registration
+```
+
 
 ## Annotation Pattern
 
@@ -380,9 +289,7 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
@@ -392,133 +299,98 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "Zahra@23"
-
 }
-
 ```
 
 
 
-EX. `Success Response`
+**EX. `Success Response`**
 
 ```sh
-
 {
-
   "id": 3,
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "$2a$10$jRYn4EnpsoOLDIQREe0oDeGBPlP1nS7lOcR4HgjMcB/O/mMMGGNGW",
-
   "objects": null
-
 }
-
 ```
 
 -----------------------------------------
+
 
 ### Request Headers
 
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "Zahra@23"
-
 }
-
 ```
 
-EX. `DuplicateKeyException - Double`
+**EX. `DuplicateKeyException - Double`**
 
 
 
 **Username et Mail sont `UNIQUE` dans la table (Sécurisé côté BDD)**
 
 ```sh
-
 {
-
   "timestamp": "02-06-2021 08:44:51",
-
   "status": "CONFLICT",
-
   "message": "Unique value for USERNAME and EMAIL",
-
   "errors": [
-
-    "Username: [Sarah12] and Email: [bhr.sdgi@gmail.com] already exists !"
-
+   "Username: [Sarah12] and Email: [bhr.sdgi@gmail.com] already exists !"
   ]
-
 }
-
 ```
 
 *Si seulement Username est en double, la reponse sera* 
 
-`[
-
+```
+[
  "Username: [***] already exists !"
-
-]`
-
-
-
-*Si seulement MAIL est en double, la reponse sera*
-
-`[
-
- "Email: [***] already exists !"
-
-]`
+]
+```
 
 -----------------------------------------
 
+*Si seulement MAIL est en double, la reponse sera*
+
+
+```
+[
+ "Email: [***] already exists !"
+]
+```
+
+
+-----------------------------------------
+
+
 `POST saveUser()`
 
-```sh
-
+```
 https://api-swing.herokuapp.com/api/registration
-
 ```
 
 ### Request Headers
 
 | KEY | VALUE |
-
-| ------ | ------ |
-
+|----------|:----------:|
 | Content-Type | application/json |
 
 
@@ -528,55 +400,32 @@ https://api-swing.herokuapp.com/api/registration
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": "Le Petit Prince est une œuvre de langue française, 
-
         la plus connue d'Antoine de Saint-Exupéry. Publié en 1943 à New York 
-
         simultanément à sa traduction anglaise1, c'est une œuvre poétique et 
-
         philosophique sous l'apparence d'un conte pour enfants.",
-
     "ageMin": 2,
-
     "ageMax": 100
-
 }
-
 ```
 
-EX. `Success Response`
+**EX. `Success Response`**
 
 ```sh
-
 {
-
     "id": 1,
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": "Le Petit Prince est une œuvre de langue française, 
-
         la plus connue d'Antoine de Saint-Exupéry. Publié en 1943 à New York 
-
         simultanément à sa traduction anglaise1, c'est une œuvre poétique et 
-
         philosophique sous l'apparence d'un conte pour enfants.",
-
     "ageMin": 2,
-
     "ageMax": 100
-
 }
-
 ```
 
 
@@ -641,7 +490,7 @@ Il est obligatoire de mettre a jour le projet apres ajout d'un dependant.
 
 >1. menu eclipse > Run Configuration > Maven Build > Click on Skip Tests > apply and Close
 
-2. Right click > Maven > Update Project ...
+>2. Right click > Maven > Update Project ...
 
 
 
@@ -659,14 +508,11 @@ Récupéré les parameters de connexion de JawsDB et créé une nouvelle connexi
 
 Configurer `applications.properties`
 
-```sh
 
+```
 spring.datasource.url= ${JDBC_DATABASE_URL}
-
 spring.datasource.username=${JDBC_DATABASE_USERNAME}
-
 spring.datasource.password=${JDBC_DATABASE_PASSWORD}
-
 ```
 
 >En plus 
@@ -692,11 +538,8 @@ A partir de ce moment, à chaque fois que nous mergeons la branche de travail av
 
 
 | Plugin | README |
-
 | ------ | ------ |
-
 | GitHub | [https://github.com/ZDubeau/ApiSwing#readme][PlGh] |
-
 | Google Drive | [plugins/googledrive/README.md][PlGd] |
 
 
@@ -708,6 +551,5 @@ A partir de ce moment, à chaque fois que nous mergeons la branche de travail av
 
 
    [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-
    [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
 
