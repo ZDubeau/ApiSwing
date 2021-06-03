@@ -2,6 +2,8 @@ package com.api.swing.repository;
 
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +23,12 @@ import com.api.swing.model.User;
  * search by simple or complex properties)
  */
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 	Optional<User> findByMail(String mail); // SELECT * FROM user WHERE mail = ?
 	Optional<User> findByUsername(String username); // SELECT * FROM user WHERE username = ?
+	
+//	@Query(value = "SELECT u FROM User u, Objects o WHERE u.id = ? AND u.id = o.user_id",
+//			nativeQuery = true)
+//	Optional<User> findUserWithObjectsById(int id);
 }

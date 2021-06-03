@@ -136,13 +136,20 @@ public class ApiUserController {
 	@GetMapping(value = "/user/{id}")
 	public User getById(@PathVariable("id") @Min(1) int id) {
 
-		return userService.findUserById(id)
+		return userService.findById(id)
 				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
 	}
+	
+//	@GetMapping(value = "/collection/{id}")
+//	public User getUserCollectionById(@PathVariable("id") @Min(1) int id) {
+//
+//		return userService.findUserWithObjectsById(id)
+//				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
+//	}
 
 	@DeleteMapping("/user/{id}")
 	public String deleteUser(@PathVariable("id") @Min(1) int id) {
-		User user = userService.findUserById(id)
+		User user = userService.findById(id)
 				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
 		userService.deleteById(user.getId());
 		return "User with ID : " + id + " is deleted";

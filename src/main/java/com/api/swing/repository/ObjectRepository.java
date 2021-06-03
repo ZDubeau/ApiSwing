@@ -2,6 +2,7 @@ package com.api.swing.repository;
 
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -23,11 +24,9 @@ import com.api.swing.model.Objects;
  */
 
 @Repository
-public interface ObjectRepository extends CrudRepository<Objects, Integer> {
+public interface ObjectRepository extends JpaRepository<Objects, Integer> {
 
-	Objects findObjeById(Objects objects);
-
-	Optional<Object> findByTitle(String title);
+	Optional<Objects> findByTitle(String title);
 	
-	Optional<Object> findByStatus(ObjStatus objStatus);
+	Optional<Objects> findByStatus(ObjStatus objStatus);
 }

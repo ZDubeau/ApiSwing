@@ -17,17 +17,19 @@ import com.api.swing.model.User;
 
 public interface UserService extends UserDetailsService {
 
-	public List<User> getUser();
+	List<User> getUser();
 
-	public Optional<User> findUserById(int id);
+	Optional<User> findById(int id);
 
-	public Optional<User> findByMail(String mail);
+	Optional<User> findByMail(String mail);
 
-	public Optional<User> findByUsername(String username);
+	Optional<User> findByUsername(String username);
 
-	public User save(User newUser);
+	User save(User newUser);
 
-	public User update(int id, User updateUser);
+	User update(int id, User updateUser);
 
-	public void deleteById(int id);
+	void deleteById(int id);
+	
+	//Optional<User> findUserWithObjectsById(int id);
 }
