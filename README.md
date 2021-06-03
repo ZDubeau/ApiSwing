@@ -69,74 +69,44 @@ https://api-swing.herokuapp.com/api/users
 
 
 ```sh
-
 [
-
     {
-
         "id": 1,
-
         "username": "Sarah5",
-
         "firstname": "Zahra",
-
         "lastname": "Sadeghi",
-
         "mail": "bhr.sdgioiki@gmail.com",
-
         "password": "$2a$10$7Z2Hj23t8YiQUz71m0kiaeZSo9.PaC/awtbjapy7YXvbUccgNWQBq",
-
         "objects": []
-
     },
-
     {
-
         "id": 2,
-
         "username": "Sarah",
-
         "firstname": "Zahra",
-
         "lastname": "Sadeghi",
-
         "mail": "bhr.sdg@gmail.com",
-
         "password": "$2a$10$aAYXdTo1ImDyrSTsl8zDCerrLq9q9J8fncJeu/VWjA177BbH2QCt.",
-
         "objects": []
-
     }
-
 ]
-
 ```
 
 **Ex. NOT_FOUND response**
 
 ```sh
-
 {
-
   "timestamp": "02-06-2021 03:31:40",
-
   "status": "NOT_FOUND",
-
   "message": "Resource Not Found",
-
   "errors": [
-
     "User list is empty."
-
   ]
-
 }
-
 ```
 
 ************************************************
 
-`GET getBjects()`
+`GET getObjects()`
 
 ```
 https://api-swing.herokuapp.com/objects/all
@@ -155,23 +125,14 @@ https://api-swing.herokuapp.com/objects/all
 
 ```sh
 [
-
   {
-
     "id": 1,
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": null,
-
     "ageMin": 2,
-
     "ageMax": 5
-
   }
-
 ]
 ```
 
@@ -179,19 +140,12 @@ https://api-swing.herokuapp.com/objects/all
 
 ```sh
 {
-
   "timestamp": "02-06-2021 08:08:23",
-
   "status": "NOT_FOUND",
-
   "message": "Resource Not Found",
-
   "errors": [
-
     "Object list is empty."
-
   ]
-
 }
 ```
 
@@ -216,21 +170,13 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 ```sh
 {
-
     "id": 1,
-
     "username": "Sarah132",
-
     "firstname": "Baharyy",
-
     "lastname": "Merian",
-
     "mail": "bhr.dubqyyy@gmail.com",
-
     "password": "$2a$10$ttjiHMLb0VaymIOPbvOEv.uyZtc5jw1dN4rBD8wgiid7UXuOiFZ.G",
-
     "objects": []
-
 }
 ```
 
@@ -238,7 +184,8 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 *EX. NOT_FOUND Response*
 
-``` "User with ID [?] Not Found!" ```
+``` "User with ID [?] Not Found!"
+```
 
 
 ************************************************
@@ -260,19 +207,12 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 ```sh
 {
-
     "username": "Sarah132",
-
     "firstname": "Baharyy",
-
     "lastname": "Merian",
-
     "mail": "bhr.dubqyyy@gmail.com",
-
     "password": "$2a$10$ttjiHMLb0VaymIOPbvOEv.uyZtc5jw1dN4rBD8wgiid7UXuOiFZ.G",
-
     "objects": []
-
 }
 ```
 
@@ -280,21 +220,13 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 ```sh
 {
-
     "id": 1,
-
     "username": "Sarah202",
-
     "firstname": "Bahar",
-
     "lastname": "Dubeau",
-
     "mail": "bhr.waren@gmail.com",
-
     "password": "$2a$10$lhEWkZqCvVyRjVHeUDqf7e3rllMZD0txdPTrOnmhnxRizvF6FSE56",
-
     "objects": []
-
 } 
 ```
 
@@ -304,22 +236,20 @@ https://api-swing.herokuapp.com/api/user/{1}
 
 `DELETE deleteUserById()`
 
-```
-https://api-swing.herokuapp.com/api/user/{1}
+```https://api-swing.herokuapp.com/api/user/{1}
 ```
 
 **EX. Success Response**
 
-```
-User with ID : 1 is deleted
-
+```User with ID : 1 is deleted
 ```
 
 **Aussi toujours la réponse d' "id" qui n'existe pas dans la BDD est :**
 
 *EX. NOT_FOUND Response*
 
-``` "User with ID [?] Not Found!" ```
+``` "User with ID [?] Not Found!" 
+```
 
 
 
@@ -328,9 +258,7 @@ User with ID : 1 is deleted
 
 `POST saveUser()`
 
-```
-
-https://api-swing.herokuapp.com/api/registration
+```https://api-swing.herokuapp.com/api/registration
 ```
 
 
@@ -366,21 +294,13 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "Zahra@23"
-
 }
-
 ```
 
 
@@ -388,25 +308,15 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 **EX. `Success Response`**
 
 ```sh
-
 {
-
   "id": 3,
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "$2a$10$jRYn4EnpsoOLDIQREe0oDeGBPlP1nS7lOcR4HgjMcB/O/mMMGGNGW",
-
   "objects": null
-
 }
-
 ```
 
 -----------------------------------------
@@ -417,21 +327,13 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
   "username": "Sarah12",
-
   "firstname": "Zahra",
-
   "lastname": "Sadeghi",
-
   "mail": "bhr.sdgi@gmail.com",
-
   "password": "Zahra@23"
-
 }
-
 ```
 
 **EX. `DuplicateKeyException - Double`**
@@ -441,46 +343,36 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 **Username et Mail sont `UNIQUE` dans la table (Sécurisé côté BDD)**
 
 ```sh
-
 {
-
   "timestamp": "02-06-2021 08:44:51",
-
   "status": "CONFLICT",
-
   "message": "Unique value for USERNAME and EMAIL",
-
   "errors": [
-
    "Username: [Sarah12] and Email: [bhr.sdgi@gmail.com] already exists !"
-
   ]
-
 }
-
 ```
 
 *Si seulement Username est en double, la reponse sera* 
 
-```[
-
+```
+[
  "Username: [***] already exists !"
-
-]```
-
-
-
-*Si seulement MAIL est en double, la reponse sera*
-
-```[
-
- "Email: [***] already exists !"
-
-]```
-
+]
+```
 
 -----------------------------------------
 
+*Si seulement MAIL est en double, la reponse sera*
+
+
+```[
+ "Email: [***] already exists !"
+]
+```
+
+
+-----------------------------------------
 
 
 `POST saveUser()`
@@ -501,55 +393,32 @@ En plus, j'ai creer un package **exceptions** ou j'ai customise les exceptions r
 ##### **Body**        raw(json)
 
 ```sh
-
 {
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": "Le Petit Prince est une œuvre de langue française, 
-
         la plus connue d'Antoine de Saint-Exupéry. Publié en 1943 à New York 
-
         simultanément à sa traduction anglaise1, c'est une œuvre poétique et 
-
         philosophique sous l'apparence d'un conte pour enfants.",
-
     "ageMin": 2,
-
     "ageMax": 100
-
 }
-
 ```
 
 **EX. `Success Response`**
 
 ```sh
-
 {
-
     "id": 1,
-
     "status": "BOOK",
-
     "title": "Le petit prince",
-
     "description": "Le Petit Prince est une œuvre de langue française, 
-
         la plus connue d'Antoine de Saint-Exupéry. Publié en 1943 à New York 
-
         simultanément à sa traduction anglaise1, c'est une œuvre poétique et 
-
         philosophique sous l'apparence d'un conte pour enfants.",
-
     "ageMin": 2,
-
     "ageMax": 100
-
 }
-
 ```
 
 
@@ -635,11 +504,8 @@ Configurer `applications.properties`
 
 ```
 spring.datasource.url= ${JDBC_DATABASE_URL}
-
 spring.datasource.username=${JDBC_DATABASE_USERNAME}
-
 spring.datasource.password=${JDBC_DATABASE_PASSWORD}
-
 ```
 
 >En plus 
