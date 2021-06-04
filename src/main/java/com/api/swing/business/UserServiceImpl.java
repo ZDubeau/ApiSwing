@@ -38,7 +38,6 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findById(id);
 		
 	}
-	
 //	@Override
 //	public Optional<User> findUserWithObjectsById(int id) {
 //		return userRepository.findUserWithObjectsById(id);
