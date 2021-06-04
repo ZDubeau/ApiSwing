@@ -21,6 +21,7 @@ import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -72,10 +73,11 @@ public class User implements Serializable {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnoreProperties("user")
-	//@Fetch(value=FetchMode.SELECT)
-	private Set<Objects> objects;
+//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JsonIgnoreProperties("user")
+//	@JsonManagedReference
+//	//@Fetch(value=FetchMode.SELECT)
+//	private Set<Objects> objects;
 
 	//	public void setAllObj(Set<Objects> allObj) {
 	//        this.allObj = allObj;
