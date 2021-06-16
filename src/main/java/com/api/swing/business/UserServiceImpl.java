@@ -22,8 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
+
+	public UserServiceImpl(final UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -33,16 +36,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> findById(int id) {
+	public Optional<User> findById(final int id) {
 		
 		return userRepository.findById(id);
 		
 	}
-//	@Override
-//	public Optional<User> findUserWithObjectsById(int id) {
-//		return userRepository.findUserWithObjectsById(id);
-//		
-//	}
+	@Override
+	public User get(final Integer id) {
+        return userRepository.findById(id).get();
+               // .map(user -> (user, new User()))
+               // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
 
 	@Override
 	public Optional<User> findByMail(String mail) {
@@ -88,7 +92,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deleteById(int id) {
+	public void deleteById(final int id) {
 		userRepository.deleteById(id);
 	}
 

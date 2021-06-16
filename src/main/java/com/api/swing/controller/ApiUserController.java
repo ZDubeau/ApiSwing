@@ -60,7 +60,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/api")
 @Validated
 public class ApiUserController {
@@ -124,14 +124,19 @@ public class ApiUserController {
 			throw new Exception("INVALID_CREDENTIALS : " + username + " - " + password, e);
 		}
 	}
-
+	
 	@GetMapping(value = "/users")
-	public List<User> getUser() {
+	public ResponseEntity<List<User>> getAllUsers() {
 		if (userService.getUser().isEmpty()) {
 			throw new RessourceNotFoundException("User list is empty.");
 		}
-		return userService.getUser();
+		return ResponseEntity.ok(userService.getUser());
 	}
+	
+	@GetMapping("/user-obj/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable final Integer id) {
+        return ResponseEntity.ok(userService.get(id));
+    }
 
 	@GetMapping(value = "/user/{id}")
 	public User getById(@PathVariable("id") @Min(1) int id) {
