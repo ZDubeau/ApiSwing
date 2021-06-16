@@ -47,7 +47,7 @@ public class ObjectServiceImpl implements ObjectsService {
 	@Override
 	public Objects createObject(int id, Objects obj) {
 		return userRepository.findById(id).map(u -> {
-			obj.setUser_id(id);
+			obj.setUser(u);
 			return objectRepository.save(obj);
 		}).orElseThrow(() -> new RessourceNotFoundException("User with id: [" + id + "] not found"));
 	}
@@ -55,7 +55,7 @@ public class ObjectServiceImpl implements ObjectsService {
 	@Override
 	public Objects updateObject(int id, Objects obj) {
 
-		Optional<User> optionalUser = userRepository.findById(obj.getUser_id());
+		Optional<User> optionalUser = userRepository.findById(obj.getId());
 		if (!optionalUser.isPresent()) {
 			return objectRepository.save(obj);
 		}
@@ -64,18 +64,35 @@ public class ObjectServiceImpl implements ObjectsService {
 		if (!optionalObj.isPresent()) {
 			return objectRepository.save(obj);
 		}
-		obj.setUser_id(optionalUser.get().getId());
+		obj.setUser(optionalUser.get());
 		obj.setId(optionalObj.get().getId());
 		return objectRepository.save(obj);
 	}
 
-	//	@Override
-	//	public Objects deleteObject(int id, Objects obj) {
+	// public User update(int id, User updateUser) {
 	//
-	//		Optional<Objects> optionalObj = objectRepository.findById(id);
-	//		if (!optionalObj.isPresent()) {
-	//			return objectRepository.save(obj);
-	//		}
-	//		return objectRepository.removeById(optionalObj.get());
-	//	}
+	// User update = findById(id)
+	// .orElseThrow(() -> new EntityNotFoundException(User.class + "id : " +
+	// updateUser));
+	//
+	// update.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+	// update.setUsername(updateUser.getUsername());
+	// update.setFirstname(updateUser.getFirstname());
+	// update.setLastname(updateUser.getLastname());
+	// update.setMail(updateUser.getMail());
+	//
+	// log.info("In update method userServiceImpl : " +
+	// userRepository.save(update));
+	// return userRepository.save(update);
+	// }
+
+	// @Override
+	// public Objects deleteObject(int id, Objects obj) {
+	//
+	// Optional<Objects> optionalObj = objectRepository.findById(id);
+	// if (!optionalObj.isPresent()) {
+	// return objectRepository.save(obj);
+	// }
+	// return objectRepository.removeById(optionalObj.get());
+	// }
 }

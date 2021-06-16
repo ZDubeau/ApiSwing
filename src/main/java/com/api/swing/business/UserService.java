@@ -31,5 +31,5 @@ public interface UserService extends UserDetailsService {
 
 	void deleteById(int id);
 	
-	//Optional<User> findUserWithObjectsById(int id);
+	User get(final Integer id);
 }

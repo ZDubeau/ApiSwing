@@ -1,6 +1,5 @@
 package com.api.swing.controller;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,11 +7,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,11 +41,11 @@ public class ApiObjectController {
 	ObjectRepository objectRepository;
 
 	@GetMapping("/objects/all")
-	public List<Objects> getAllObjects() {
+	public ResponseEntity<List<Objects>> getAllObjects() {
 		if (objectService.getObjects().isEmpty()) {
 			throw new RessourceNotFoundException("Object list is empty.");
 		}
-		return objectService.getObjects();
+		return ResponseEntity.ok(objectService.getObjects());
 	}
 
 	@GetMapping("/objects/{id}")
@@ -57,5 +58,10 @@ public class ApiObjectController {
 	public Objects addNewObject(@PathVariable(value = "user_id") int id, @Valid @RequestBody Objects obj) {
 
 		return objectService.createObject(id, obj);
+	}
+
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> update(@PathVariable int id, @Valid @RequestBody Objects result) {
+		return ResponseEntity.ok(objectService.updateObject(id, result));
 	}
 }
