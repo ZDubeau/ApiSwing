@@ -14,7 +14,6 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -124,7 +123,7 @@ public class ApiUserController {
 			throw new Exception("INVALID_CREDENTIALS : " + username + " - " + password, e);
 		}
 	}
-	
+
 	@GetMapping(value = "/users")
 	public ResponseEntity<List<User>> getAllUsers() {
 		if (userService.getUser().isEmpty()) {
@@ -132,11 +131,11 @@ public class ApiUserController {
 		}
 		return ResponseEntity.ok(userService.getUser());
 	}
-	
+
 	@GetMapping("/user-obj/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable final Integer id) {
-        return ResponseEntity.ok(userService.get(id));
-    }
+	public ResponseEntity<User> getUserById(@PathVariable final Integer id) {
+		return ResponseEntity.ok(userService.get(id));
+	}
 
 	@GetMapping(value = "/user/{id}")
 	public User getById(@PathVariable("id") @Min(1) int id) {
@@ -144,13 +143,14 @@ public class ApiUserController {
 		return userService.findById(id)
 				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
 	}
-	
-//	@GetMapping(value = "/collection/{id}")
-//	public User getUserCollectionById(@PathVariable("id") @Min(1) int id) {
-//
-//		return userService.findUserWithObjectsById(id)
-//				.orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "] Not Found!"));
-//	}
+
+	// @GetMapping(value = "/collection/{id}")
+	// public User getUserCollectionById(@PathVariable("id") @Min(1) int id) {
+	//
+	// return userService.findUserWithObjectsById(id)
+	// .orElseThrow(() -> new RessourceNotFoundException("User with ID [" + id + "]
+	// Not Found!"));
+	// }
 
 	@DeleteMapping("/user/{id}")
 	public String deleteUser(@PathVariable("id") @Min(1) int id) {
